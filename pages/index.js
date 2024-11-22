@@ -1,115 +1,124 @@
-import Image from "next/image";
-import localFont from "next/font/local";
-
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
+// pages/index.js
+import "@fontsource/ibm-plex-mono";
+import Layout from "../components/Layout";
+import RetroGrid from "@/components/ui/retro-grid";
+import UseAnimations from "react-useanimations";
+import github from "react-useanimations/lib/github";
+import linkedin from "react-useanimations/lib/linkedin";
+import TypingAnimation from "@/components/ui/typing-animation";
+import Experience from "@/components/Experience";
+import Link from "next/link";
+import Skills from "@/components/Skills";
+import download from "react-useanimations/lib/download";
 
 export default function Home() {
+  const texts = [
+    "a tech enthusiast",
+    "a software dev",
+    "a music producer",
+    "a video editor",
+  ];
   return (
-    <div
-      className={`${geistSans.variable} ${geistMono.variable} grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]`}
-    >
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              pages/index.js
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <Layout>
+      <div className="flex items-center justify-center  my-11 pt-20">
+        <div className="flex flex-col md:flex-row items-center justify-center w-full max-w-4xl my-11 pt-10 ">
+          <div className="md:w-1/2 mb-4 md:mb-0 md:mr-4 flex flex-col items-start">
+            <h2 className="text-lg text-gray-700   mb-2 font-mono">Hello,</h2>
+            <p className="text-gray-700 font-mono">
+              I’m <span className=" font-mono text-lg">Gahan Bhat,</span>
+            </p>
+            <span className="text-gray-700  items-center">
+              {" "}
+              {/* Added flex */}
+              <TypingAnimation
+                texts={texts}
+                duration={100} // Typing speed
+                className="dark:text-white my-2"
+              />
+            </span>
+            <br />
+            <div className=" ">
+              <span className=" flex font-mono text-l text-gray-700 ">
+                Find me on:
+              </span>
+              <div className="inline-flex gap-4 dark:bg-gray-700 px-1 pt-1">
+                <Link
+                  href="https://github.com/gahanbhat"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <UseAnimations
+                    animation={github}
+                    className="text-gray-800 dark:text-white hover:scale-110 duration-500"
+                  />
+                </Link>
+                <Link
+                  href="https://www.linkedin.com/in/gahanbhat/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <UseAnimations
+                    animation={linkedin}
+                    className="hover:scale-110 duration-500"
+                  />
+                </Link>
+                <Link
+                  href="https://www.linkedin.com/in/gahanbhat/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img
+                    src="/X-Logo.png"
+                    className="w-5 hover:scale-110 duration-500 pt-0.5"
+                  />
+                </Link>
+                <Link
+                  href="https://discordlookup.com/user/528927281406672897"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img
+                    src="/discord.svg"
+                    className="w-7 hover:scale-110 duration-500  "
+                  />
+                </Link>
+              </div>
+            </div>
+            <div className="justify-center items-center">
+              <span className=" flex font-mono text-l text-gray-700 ">
+                Resume:
+              </span>
+              <div className=" justify-center items-center w-fit dark:bg-gray-700 ">
+                <Link
+                  href="https://www.linkedin.com/in/gahanbhat/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <UseAnimations
+                    animation={download}
+                    className="hover:scale-110 duration-500"
+                  />
+                </Link>
+              </div>
+            </div>
+          </div>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
+          <div className="md:w-1/2 flex justify-center">
+            <img
+              src="/port.gif"
+              alt="A description of the GIF"
+              width="480"
+              height="480"
+              className="rounded-xl shadow-2xl"
             />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+      </div>
+
+      <div className="flex text-center justify-center mt-24 p-4"></div>
+
+      <Experience />
+      <Skills />
+    </Layout>
   );
 }
