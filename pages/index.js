@@ -1,15 +1,10 @@
 // pages/index.js
 import "@fontsource/ibm-plex-mono";
 import Layout from "../components/Layout";
-import RetroGrid from "@/components/ui/retro-grid";
-import UseAnimations from "react-useanimations";
-import github from "react-useanimations/lib/github";
-import linkedin from "react-useanimations/lib/linkedin";
 import TypingAnimation from "@/components/ui/typing-animation";
 import Experience from "@/components/Experience";
 import Link from "next/link";
 import Skills from "@/components/Skills";
-import download from "react-useanimations/lib/download";
 
 export default function Home() {
   const texts = [
@@ -47,8 +42,8 @@ export default function Home() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <UseAnimations
-                    animation={github}
+                  <img
+                    src="/bxl-github.svg"
                     className="text-gray-800 dark:text-white hover:scale-110 duration-500"
                   />
                 </Link>
@@ -57,9 +52,9 @@ export default function Home() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <UseAnimations
-                    animation={linkedin}
-                    className="hover:scale-110 duration-500"
+                  <img
+                    src="/bxl-linkedin.svg"
+                    className="text-gray-800 dark:text-white hover:scale-110 duration-500"
                   />
                 </Link>
                 <Link
@@ -88,15 +83,15 @@ export default function Home() {
               <span className=" flex font-mono text-l text-gray-700 ">
                 Resume:
               </span>
-              <div className=" justify-center items-center w-fit dark:bg-gray-700 ">
+              <div className=" justify-center p-1 items-center w-fit dark:bg-gray-700 ">
                 <Link
                   href="https://www.linkedin.com/in/gahanbhat/"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <UseAnimations
-                    animation={download}
-                    className="hover:scale-110 duration-500"
+                  <img
+                    src="/bx-download.svg"
+                    className="text-gray-800 dark:text-white hover:scale-110 duration-500"
                   />
                 </Link>
               </div>

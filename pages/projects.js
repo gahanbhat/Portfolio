@@ -1,7 +1,6 @@
 import Layout from "@/components/Layout";
 import Link from "next/link";
 import UseAnimations from "react-useanimations";
-import github from "react-useanimations/lib/github";
 
 export default function Projects() {
   const projects = [
@@ -55,8 +54,8 @@ export default function Projects() {
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      <UseAnimations
-                        animation={github}
+                      <img
+                        src="/bxl-github.svg"
                         className="text-white hover:scale-110 duration-500 scale-125"
                       />
                     </Link>
