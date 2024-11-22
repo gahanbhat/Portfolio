@@ -1,6 +1,5 @@
 import Layout from "@/components/Layout";
 import Link from "next/link";
-import UseAnimations from "react-useanimations";
 
 export default function Projects() {
   const projects = [
