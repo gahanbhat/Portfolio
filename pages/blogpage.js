@@ -17,12 +17,12 @@ export default function Blog({ posts }) {
             {posts.map((post) => (
               <div
                 key={post.id}
-                className="w-full p-4 border-2 dark:border-gray-900 rounded-lg"
+                className="w-full p-4 border-2 border-neutral-900 rounded-lg"
               >
                 <Link href={`/blog/${post.id}`}>
                   <h2 className="text-xl font-bold mb-2">{post.title}</h2>
                 </Link>
-                <p className="text-gray-600">{post.date}</p>
+                <p className="text-green">{post.date}</p>
               </div>
             ))}
           </div>

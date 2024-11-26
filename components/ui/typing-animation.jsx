@@ -54,13 +54,13 @@ export default function TypingAnimation({
   return (
     <h1
       className={cn(
-        "font-display text-center text-lg h-10 dark:text-gray-700 font-mono",
+        " text-center text-lg h-10 dark:text-dtext font-mono",
         className
       )}
     >
       {displayedText}
       {showCursor && (
-        <span className="inline-block w-1 h-6 bg-black dark:bg-white blink ] tracking-[-0.02em] drop-shadow-sm   "></span>
+        <span className="inline-block w-1 h-6 bg-black dark:bg-white blink  tracking-[-0.02em] drop-shadow-sm   "></span>
       )}
     </h1>
   );

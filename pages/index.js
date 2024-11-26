@@ -1,4 +1,3 @@
-// pages/index.js
 import "@fontsource/ibm-plex-mono";
 import Layout from "../components/Layout";
 import TypingAnimation from "@/components/ui/typing-animation";
@@ -15,28 +14,22 @@ export default function Home() {
   ];
   return (
     <Layout>
-      <div className="flex items-center justify-center  my-11 pt-20">
-        <div className="flex flex-col md:flex-row items-center justify-center w-full max-w-4xl my-11 pt-10 ">
-          <div className="md:w-1/2 mb-4 md:mb-0 md:mr-4 flex flex-col items-start">
-            <h2 className="text-lg text-gray-700   mb-2 font-mono">Hello,</h2>
-            <p className="text-gray-700 font-mono">
-              I’m <span className=" font-mono text-lg">Gahan Bhat,</span>
+      <div className="flex items-center justify-center my-11 pt-20 px-4">
+        <div className="flex flex-col md:flex-row items-center justify-center w-full max-w-4xl mx-auto my-11 pt-10">
+          {/* Left Section */}
+          <div className="md:w-1/2 mb-6 md:mb-0 md:mr-4 px-4 flex flex-col items-center md:items-start">
+            <h2 className="text-base md:text-2xl   mb-2 font-bold font-mono">
+              Hello,
+            </h2>
+            <p className="font-mono text-center md:text-left">
+              I’m <span className="font-mono text-lg">Gahan Bhat</span>
             </p>
-            <span className="text-gray-700  items-center">
-              {" "}
-              {/* Added flex */}
-              <TypingAnimation
-                texts={texts}
-                duration={100} // Typing speed
-                className="dark:text-white my-2"
-              />
+            <span className="">
+              <TypingAnimation texts={texts} duration={100} className="my-2" />
             </span>
-            <br />
-            <div className=" ">
-              <span className=" flex font-mono text-l text-gray-700 ">
-                Find me on:
-              </span>
-              <div className="inline-flex gap-4 dark:bg-gray-700 px-1 pt-1">
+            <div className="mt-4 justify-center">
+              <span className="flex font-mono text-md mb-2">Find me on:</span>
+              <div className="inline-flex gap-4 pt-1 flex-wrap ">
                 <Link
                   href="https://github.com/gahanbhat"
                   target="_blank"
@@ -44,7 +37,8 @@ export default function Home() {
                 >
                   <img
                     src="/bxl-github.svg"
-                    className="text-gray-800 dark:text-white hover:scale-110 duration-500"
+                    alt="GitHub"
+                    className="w-6 scale-125 hover:scale-110 duration-150"
                   />
                 </Link>
                 <Link
@@ -54,19 +48,21 @@ export default function Home() {
                 >
                   <img
                     src="/bxl-linkedin.svg"
-                    className="text-gray-800 dark:text-white hover:scale-110 duration-500"
+                    alt="LinkedIn"
+                    className="w-6 scale-125 hover:scale-110 duration-150"
                   />
                 </Link>
-                <Link
-                  href="https://www.linkedin.com/in/gahanbhat/"
+                {/* <Link
+                  href="https://twitter.com/"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   <img
-                    src="/X-Logo.png"
-                    className="w-5 hover:scale-110 duration-500 pt-0.5"
+                    src="/X-Logo.svg"
+                    alt="Twitter"
+                    className="w-6 hover:scale-110 duration-500"
                   />
-                </Link>
+                </Link> */}
                 <Link
                   href="https://discordlookup.com/user/528927281406672897"
                   target="_blank"
@@ -74,37 +70,35 @@ export default function Home() {
                 >
                   <img
                     src="/discord.svg"
-                    className="w-7 hover:scale-110 duration-500  "
+                    alt="Discord"
+                    className="w-6 scale-125 hover:scale-110 duration-150"
                   />
                 </Link>
               </div>
             </div>
-            <div className="justify-center items-center">
-              <span className=" flex font-mono text-l text-gray-700 ">
-                Resume:
-              </span>
-              <div className=" justify-center p-1 items-center w-fit dark:bg-gray-700 ">
-                <Link
-                  href="https://www.linkedin.com/in/gahanbhat/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <img
-                    src="/bx-download.svg"
-                    className="text-gray-800 dark:text-white hover:scale-110 duration-500"
-                  />
-                </Link>
-              </div>
+            <div className="mt-4 justify-center items-center">
+              <span className="font-mono text-md mb-2">Resume:</span>
+
+              <Link
+                href="https://drive.google.com/file/d/11NXo2qO7sP6BkvqeVz_EozSgZY5QxrI8/view?usp=sharing"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  src="/bx-download.svg"
+                  alt="Download Resume"
+                  className="inline-flex flex-wrap mx-4 w-6 scale-150 hover:scale-125 duration-150"
+                />
+              </Link>
             </div>
           </div>
 
-          <div className="md:w-1/2 flex justify-center">
+          {/* Right Section */}
+          <div className="md:w-1/2 flex pr-4 justify-center">
             <img
               src="/port.gif"
-              alt="A description of the GIF"
-              width="480"
-              height="480"
-              className="rounded-xl shadow-2xl"
+              alt="Portfolio GIF"
+              className="w-full max-w-xs md:max-w-md rounded-xl shadow-2xl"
             />
           </div>
         </div>
@@ -112,6 +106,7 @@ export default function Home() {
 
       <div className="flex text-center justify-center mt-24 p-4"></div>
 
+      {/* Additional Sections */}
       <Experience />
       <Skills />
     </Layout>

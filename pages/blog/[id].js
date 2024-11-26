@@ -8,9 +8,9 @@ export default function BlogPost({ postData }) {
         <h1 className="text-3xl font-bold text-center mb-4">
           {postData.title}
         </h1>
-        <p className="text-gray-600 text-center mb-8">{postData.date}</p>
+        <p className="text-center text-green mb-8">{postData.date}</p>
         <div
-          className="prose prose-lg text-gray-800 mx-auto"
+          className="prose prose-lg mx-auto"
           dangerouslySetInnerHTML={{ __html: postData.contentHtml }}
         />
       </div>

@@ -53,12 +53,12 @@ export default function Experience() {
       ref={sectionRef}
       className="my-20 mx-auto max-w-4xl px-8"
     >
-      <h2 className="text-xl text-center mb-10 p-2 text-gray-700 dark:text-gray-300 font-mono">
+      <h2 className="text-2xl text-center mb-10 p-2 font-bold font-mono">
         My Experiences
       </h2>
       <div className="relative mt-2">
         {/* Timeline Line */}
-        <div className="absolute left-1/2 transform -translate-x-1/2 top-0 mt-6 h-full border-l-2 border-gray-300 dark:border-gray-900"></div>
+        <div className="absolute left-1/2 transform -translate-x-1/2 top-0 mt-6 h-full border-l-2  border-neutral-900"></div>
 
         {/* Timeline Items */}
         <div className="space-y-24 mt-6  relative">
@@ -77,13 +77,13 @@ export default function Experience() {
             >
               {/* Circle */}
               <div
-                className="absolute z-10 w-6 h-6 bg-gray-900 dark:bg-gray-800 rounded-full border-4 mt-6 border-white dark:border-gray-900"
+                className="absolute z-10 w-6 h-6  bg-neutral-800 rounded-full border-4 mt-6  border-neutral-900 hidden md:block"
                 style={{ left: "50%", transform: "translate(-50%, -50%)" }}
               ></div>
 
               {/* Callout (Content) */}
               <div
-                className={`relative mt-6 p-4 dark:bg-transparent bg-white border border-gray-900 shadow-md w-64 font-mono ${
+                className={`relative mt-6 p-4 bg-neutral-900  border border-neutral-900 shadow-md w-64 font-mono ${
                   index % 2 === 0 ? "ml-12 text-left" : "mr-12 text-right"
                 }`}
                 style={{
@@ -91,23 +91,19 @@ export default function Experience() {
                   marginRight: index % 2 === 1 ? "4rem" : "auto",
                 }}
               >
-                <h3 className="text-lg  font-mono dark:text-gray-500 text-gray-700">
-                  {exp.title}
-                </h3>
-                <div className="flex items-center  font-mono dark:text-gray-700 mt-2">
+                <h3 className="text-lg  font-mono ">{exp.title}</h3>
+                <div className="flex items-center  font-mono mt-2">
                   <img
                     src={exp.logo}
                     alt={`${exp.company} logo`}
                     className="w-6 h-6 mr-2 rounded-xl shadow-md"
                   />
-                  <p className="text-gray-700 text-md dark:text-gray-300  font-mono">
+                  <p className=" text-md text-green  font-mono">
                     {exp.company}
                   </p>
                 </div>
                 <div className="pt-2">
-                  <span className="text-md text-gray-500  font-mono">
-                    {exp.date}
-                  </span>
+                  <span className="text-md   font-mono">{exp.date}</span>
                 </div>
               </div>
             </div>

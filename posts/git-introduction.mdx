@@ -1,0 +1,550 @@
+---
+title: "Introduction to Git"
+date: "2024-10-29"
+---
+
+- GIT is a version control system that tracks and manages the changes in the file .Git allows you to co-ordinate with the developers
+
+## A Distributed system
+
+**Distributed Version Control**  system a local copy is saved on each node (computer of a person who is part of the project). There is also a centralised server where all the team members push their changes. This way Git is resilient to crashes as each node has its own copy of the source tree.
+
+## Features of git
+
+- ***P*erformance**: Git provides the best performance when it comes to version control systems. Committing, branching, merging all are optimised for a better performance than other systems.
+- **Security**: Git handles your security with cryptographic method SHA-1. The algorithm manages your versions, files, and directory securely so that your work is not corrupted.
+- **Branching Model**: Git has a different branching model than the other VCS. Git branching model lets you have multiple local branches which are independent of each other. Having this also enables you to have friction-less **context switching** (switch back and forth to new commit, code and back), **role-based code** (a branch that always goes to production, another to testing etc) and **disposable experimentation** (try something out, if does not work, delete it without any loss of code).
+- **Staging Area**: Git has an intermediate stage called "**index**" or "**staging area**" where commits can be formatted and modified before completing the commit.
+- **Distributed**: Git is distributed in nature. Distributed means that the repository or the complete code base is mirrored onto the developer's system so that he can work on it only.
+- **Open Source**: This is a very important feature of any software present today. Being open source invites the developers from all over the world to contribute to the software and make it more and more powerful through features and additional plugins. This has led the Linux kernel to be a software of about 15 million lines of code.
+
+# GIT COMMANDS :
+
+## git init :
+
+---
+
+- git-init command initialises the empty git repository in the local machine that tracks and manages the changes that is done locally.
+
+```jsx
+git init
+```
+
+---
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/caee3698-3786-46eb-9142-6fcc1cfab589/Untitled.png)
+
+## git clone :
+
+- git clone command allows you to download the contents from remote repository to local filesystem.
+
+```jsx
+git clone (git@github.com:adeshrgowda/C-Programme.git)//repo url//
+
+```
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/6139c2d0-9b80-478c-bc73-1ad5e5eec083/Untitled.png)
+
+## git status :
+
+git-status - Show the working tree status
+
+or, it shows the status of the current working status of the branch.
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/ce85f8c1-7d8f-4c94-ad99-cd6802f61055/Untitled.png)
+
+## git add
+
+- **git add command adds the newly created or modified file into _staging_ area .**
+
+### scenario :
+
+**suppose if the developer wants to commits the changes that he has done on the specific branch ,first he has to add the modified file to staging area ,that can be done by the below command**
+
+```jsx
+git add <file name >
+//or//
+git add . (this command adds all the changes done in the working branch to staging area)
+```
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/e1a634e4-b7ed-488c-a83c-1c82cbd753cf/Untitled.png)
+
+## git commit :
+
+- **git commit command will Record changes to the repository.**
+
+### scenario:
+
+suppose if the developer wants to commits the changes with the “message “ in staging area then follow the below command
+
+```jsx
+git commit -m"commit message"
+git commit -am "adds changes to staging area and commits "
+```
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/1580582e-2f7d-426d-9984-c0d637aca0e2/Untitled.png)
+
+## git log :
+
+- git-log - Show commit logs.
+- git log command shows the logs of the particular working branch .
+
+### scenario:
+
+suppose if the developer wants to see the references that has been done on the particular branch then he can view it by providing the below command
+
+```jsx
+git log
+//or//
+git log --oneline //displays commit logs in one line//
+```
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/a959c438-7151-4c22-bcee-f3756097c011/Untitled.png)
+
+## git branch :
+
+**Branch is a new/separate version of the main repository.**
+
+Let's say you have a large project, and you need to update the design on it.
+
+How would that work without and with Git:
+
+- With a new branch called new-design, edit the code directly without impacting the main branch
+- EMERGENCY! There is an unrelated error somewhere else in the project that needs to be fixed ASAP!
+- Create a new branch from the main project called small-error-fix
+- Fix the unrelated error and merge the small-error-fix branch with the main branch
+- You go back to the new-design branch, and finish the work there
+- Merge the new-design branch with main (getting alerted to the small error fix that you were missing)
+
+### scenario:
+
+suppose if the developer wants to work on the current main branch files without reflecting the changes directly in main branch ,then he can create the separate version of that main branch
+
+then he can work on it , this can be achieved by below command :
+
+```jsx
+git branch //lists the branches in local workspace//
+
+git switch -c <branch name> //creates new branch and switches to it//
+
+git checkout <branch name> //switches to desired branch //
+```
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/bfb9b940-42b4-49af-93bf-482526d5d3d0/Untitled.png)
+
+### Command To connect to Remote repo :
+
+---
+
+---
+
+```jsx
+git remote add origin git@github.com:adeshrgowda/demo.git //pointing to remote//
+
+git remote -v
+//The above output is providing available remote connections. If a repository contains more than one remote connection, this command will list them all.//
+
+git remote //displays the name of remote repo//
+```
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/39b0af61-b0d9-405f-baca-7ca38c2521c0/Untitled.png)
+
+## stashing in git :
+
+### git stash :
+
+**Sometimes you want to switch the branches, but you are work is incomplete part of your current project. You don't want to make a commit of half-done work. Git stashing allows you to do so. The git stash command enables you to switch branches without committing the current branch.**
+
+```jsx
+git stash //temporarily saves the uncommited file in stack //
+git stash list //lists all the stashed changes//
+git stash pop //applies the recently stashed item to working branch//
+git stash pop <stash id> //applies the respective stash into working branch//
+git stash save "stash message " //saves stash with a message//
+git stash drop <stash id> //drops the respective stash from stack//
+git stash apply //applying stash multiple times//
+
+```
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/54f4e39c-30fd-46d0-8248-94745715b562/Untitled.png)
+
+---
+
+---
+
+---
+
+## git show:
+
+- **outputs the metadata and content changes of the specific commit or the file.**
+-
+
+### scenario :
+
+suppose if the developer wants to view the changes that he has done on the particular file then
+
+by providing below command he can achieve that:
+
+```jsx
+git show <file name> //displays the changes done in the file//
+git show <commit id >//displays the chnges done on the particular commit//
+
+```
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/2bbaa8b8-9552-4137-99b0-17a19c746822/Untitled.png)
+
+## git revert :
+
+- **git-revert - Revert some existing commits**
+
+### scenario for revert:
+
+suppose if the developer wants to undo the changes that has been done on the particular commit then by performing below revert commit he can achieve that
+
+### scenario for reset:
+
+suppose if the developer wants to undo the changes that has been done after the particular commit then he can achieve that by performing below reset command
+
+```jsx
+git revert <commit id> //undos the changes that has been done in that particular commit//
+git reset <commit id> //undos the commits thats has been commited after given commit id//
+```
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/ddde721d-404b-4f13-9131-18e27d80897e/Untitled.png)
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/46db0b57-06fb-4096-9f23-a02acdf67e52/Untitled.png)
+
+## git merge:
+
+- git merge command allows you to integrate the changes from one branch to another branch
+- git-merge - Join two or more development histories together
+
+### scenario :
+
+suppose if the developer wants to merge the changes done on particular branch to another then he can achieve that by performing the below command
+
+step 1 : switch to particular target branch where you have to merge the changes
+
+step 2: perform the below command to achieve the merge
+
+```jsx
+git merge <branch name> //switch to master
+```
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/24fea0a1-b4de-4f17-a898-62ff310f44f8/Untitled.png)
+
+\***\*\*\*\*\*\*\*** MERGING STRATEGIES**\*\***\*\*\*\***\*\***
+
+MERGE TYPES :
+
+There is a proper merging algorithm in git, with the help of which git performs all of these operations and presents conflicts if there are any.
+
+- In our case, we have two branches one is the default branch called “main” and the other branch named “dev” and this is how our git repo looks before merging.
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/6e548e7e-1690-4ccc-bcc9-bcfa4bb4bdae/Untitled.png)
+
+- Here git finds the common base, creates a new merge commit, and merged them.
+
+  A git merge operation is performed by running the command “git merge <name of the branch to be merged (in our case it is “dev”)>”. When we perform merging, git always merges with the current branch from where we are performing the operation(in our case it is “main”). By this, the branch being merged is not affected.
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/1760b9b5-16d7-4bf5-8f75-451032ee789b/Untitled.png)
+
+TYPES OF MERGES:
+
+1. Fast-Forward Merge
+2. Three Way Merge
+
+- Fast-Forward Merge : _Fast forward merge happens when the tip of the current branch (“dev” in our case) is a direct ancestor of the target branch (“main” in our case)._
+-
+
+## git push :
+
+- The `*git push*`
+   command is used to upload local repository content to a remote repository.
+- Pushing is how you transfer commits from your local repository to a remote repo. It's the counterpart to `git fetch`
+
+### scenario:
+
+suppose if the developer wants to update the main remote repository with his changes that has been done locally then he has to perform the below command
+
+```jsx
+git push <opt> <remote> <branch>
+```
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/f57a9789-b8a6-4e4c-99af-438c98c2c6ab/Untitled.png)
+
+## git fetch :
+
+- **The "_git fetch_" command is used to pull the updates from remote-tracking branches.**
+
+```jsx
+ git fetch< repository Url>
+
+git fetch <branch URL><branch name> //We can fetch a specific branch from a repository. It will only access the element from a specific branch
+
+git fetch -all //command allows to fetch all branches simultaneously from a remote repository//
+
+git fetch repo <remote-branch>:<local-branch> //this command You can fetch a remote branch using the git fetch command. This lets you retrieve the metadata associated with a particular branch instead of every branch.
+
+To fetch a remote branch, you must specify the name of the remote branch that you want to fetch. You must also state the name of the local branch that is associated with the remote branch. The syntax for fetching a remote branch is as follows:
+eg :
+git fetch origin dev:dev //example origin : remote name , dev :remote branch .,dev local branch
+```
+
+## git pull :
+
+- **_git pull_ command is used to pull the updates from remote-tracking branches,it directly downloads the changes into the local workspace**
+- **_git-pull_ - Fetch from and integrate with another repository or a local branch**
+- **git pull = git fetch + git merge**
+- **_git fetch_ : update the remote tracking branch with the latest changes from remote repository**
+- **_git merge_ : updates the current branch with whatever changes are on the remote tracking branch .**
+
+```jsx
+git pull <repo url>
+```
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/98e20cf1-ca68-4811-8a2b-ea95e8abf4c2/Untitled.png)
+
+## git diff:
+
+- git-diff - Show changes between commits, commit and working tree, etc
+- So what git diff actually shows you all the changes done in the file after doing a commit
+
+```jsx
+git diff //cmd lists all changes in our working directory that are not staged for the next commit//
+git diff HEAD //list all changes in the working tree since your last commit//
+git diff --staged /--cached //cmd list the changes between the staging area and our last commit//
+-----------------------------------------------------
+//for a particular file//
+git diff HEAD [file name]
+git diff --staged [file name]
+-------------------------------------------------------
+//comparing commits//
+git diff <commit id > <commit id> //list the changes in the file done during the given commits//
+--------------------------------------------------------
+//timestamp//
+git diff <branch name>@{timestamp} <branch name>@{timestamp}
+the difference between the two files based on given timestamp will be displayed
+eg:
+git diff master master@{yesterday} //it compares the current master branch contents to contents of master branch yesterday//
+
+```
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/1b971d31-86be-489a-a41e-2408504ccbbd/Untitled.png)
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/11426a51-4c49-474e-9494-65ffa31f6a91/Untitled.png)
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/a87ee714-77f6-468f-96f8-2e83ba5ccd37/Untitled.png)
+
+//**git diff wrt timestamp :**
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/e489c116-3804-41f1-8c36-3068eeb766de/Untitled.png)
+
+## interactive git rebase:
+
+- **sometimes we want to rewrite delete , rename or even reorder commits(before sharing them),this can be achieved by using rebase command.**
+- **two main applications of _git_ _rebase_ command:**
+
+1. **as an alternative to merging.**
+2. **as a clean up tool.**
+
+- **running git rebase with the _-i_ option will enter the _interactive mode_, which then allows us to. edit commits, add files ,drops commits, etc (we need to specify how far back we want to rewrite commits.**
+
+```jsx
+git rebase -i HEAD~(nos) //git
+```
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/1919eab1-c8ed-4a4b-be8d-244a447e6c42/Untitled.png)
+
+// **_alter the commits by typing esc+i , then by using options alter as the requirement and to save semicolon(:) ctrl+x._**
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/9737a4aa-e949-4717-b017-58d9b2dcaea4/Untitled.png)
+
+//combing commits //
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/ad7c022c-c24e-4d0c-8e4f-e6046ff6d6fd/Untitled.png)
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/371cd88a-012e-43d7-b0e1-c42b091b7f4a/Untitled.png)
+
+//dropping commits and their changes
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/580824ce-7fb0-4eea-be85-e671ef5ce016/Untitled.png)
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/40e712bc-a9e2-4491-a065-be08fef50015/Untitled.png)
+
+## git reflogs :
+
+- **git keeps a record of when the tips of branches and other references were updated in the repo.**
+- **we can view and update these reference logs using git reflog command**
+- **it can be also called _HEAD_ logs**
+- **the git _reflog_ command accepts subcommands _show,_ _expire, delete and exists_ ._show_ is the only commonly used variant, and it is default subcommand.**
+- **we can sometimes use _reflog_ entries to access commits that seem lost and are not appearing in git log.suppose if u have uncommited the changes and again u have to retrieve it back that can be possible by command git reflog**
+
+### timed References:
+
+- **every entry in the reference logs has a timestamp associated with it .we can filter reflogs entires by time/date by using time qualifiers like;**
+- **1.day.ago**
+- **3.minutes.ago**
+- **yesterday**
+- **fri,12 feb 2021 14:09:21 -0800**
+
+```jsx
+git reflog show HEAD // it displyas the logs reference to head//
+git reflog show main //displays the main branch logs
+git reflog show <branch name> //it displays the logs of the corresponding branch//
+-----------------------------------------------------
+//reflog with timestamp//
+git reflog master@{one.day.ago} //the reference logs from yesterday will be displayed//
+
+```
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/f628d045-6068-4347-a2b4-8fbc3a8c60da/Untitled.png)
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/2859930f-033d-41bf-b9e5-9f00d4ecfd04/Untitled.png)
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/7611ca7c-036b-41bf-914c-76cada9a467d/Untitled.png)
+
+---
+
+---
+
+---
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/17cb06b3-3c9f-49df-a220-f24bc8501ee5/Untitled.png)
+
+---
+
+---
+
+---
+
+- **steps to retrieve the committed changes back to working area:**
+
+  ***
+
+```jsx
+git reflog show HEAD // here you can find the deleted commits
+git checkout <commit id> // HEAD will be pointing to that new commit
+git log --oneline //to check if the presence of deleted log back in working area//
+```
+
+important terminologies in GIT:
+
+HEAD : The term *HEAD* in Git refers to the latest commit of your currently checked-out branch
+
+- **What does Git detached HEAD mean?**
+
+ans . HEAD usually points to a branch name, so when you create a new commit, though the branch reference will be updated to point to it, HEAD will remain unchanged. When you switch to another branch, HEAD will be updated to point to it. This means that HEAD is **attached** 
+to a branch.
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/e7f40574-1cff-4178-ab6a-d522c1102ee5/Untitled.png)
+
+## Branching strategy
+
+Branches are primarily used as a means for teams to develop features giving them a separate workspace for their code. These branches are usually merged back to a master branch upon completion of work. In this way, features (and any bug and bug fixes) are kept apart from each other allowing you to fix mistakes more easily.
+
+This means that branches protect the mainline of code and any changes made to any given branch don’t affect other developers.
+
+### **Why you need a branching strategy?**
+
+Such a strategy is necessary as it helps keep repositories organized to avoid errors in the application and **the dreaded merge hell when multiple developers are working simultaneously and are all adding their changes at the same time..**
+
+- Enhance productivity by ensuring proper coordination among developers
+- Enable parallel development
+- Help organize a series of planned, structured releases
+- Map a clear path when making changes to software through to production
+- Maintain a bug-free code where developers can quickly fix issues and get these changes back to production without disrupting the development workflow
+
+## The Problem in Centralised workflow :
+
+Its nice and easy to work on single branch for all developers,but there arises a problem
+
+- lots of time time spent on resolving conflicts and merging code ,as the team scales up.
+- No one can work on anything without disturbing the main code base, no way to experiment on things
+- the only way to collaborate on the feature is to push the incomplete code to the master,now other teams have broken code…they will complete your half finished .
+
+## The Feature Branch :
+
+Rather than working on main/master branch ,all new developments must be done on separate branches..
+
+- Treat branches as the separate official Project history
+- Multiple teammates can coloborate on single feature and share code back and forth without disturbing the main brach code base
+- master /main branch doesnt contain incomplete code ,rather it contains production related codes .
+
+## Merging in feature branches
+
+At some point the work done in feature branch must be merged to the main/master branch ,to do this we have some options :
+
+- merge at will,without any sort of discussions with teammates .just do it whenever you want
+- send an email or chat message ,to your team mates to merge the changes in
+- Pull Request
+
+### Pull Requests:
+
+Pull requests are a feature built in to products like github,bitbucket ,they are not native to git itself.
+
+- they allow developers to alert team members to new work that needs to be reviewed
+- they provide mechasim to approve or reject a new changes ,for the branch
+- they also help facilitate discussion and feeback on specified commits
+
+### Forking in git
+
+- Git hub and other tools ,allow us to create a personal copies of other peoples repositories,we call those copies a ‘fork’ of the original
+- when we fork a repsitory ,we are basically asking github “make me my own copy of this repo please”
+- As like pull request forking is not a feature of git,the ability to fork is implemented by github.
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/1bf930d1-2351-41ad-b3d9-8c7e0684e155/Untitled.png)
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/176c80bb-27f7-40d1-b817-ab18a532f3b8/Untitled.png)
+
+### Different types of branching strategies
+
+- GitFlow
+- GitHub Flow
+- GitLab Flow
+- Trunk-based development
+
+### Use Cases of Branching Startegies
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/f1ffb477-66d5-44f7-a076-17b464036b6f/Untitled.png)
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/500288e9-bf62-4c97-8675-95b2fa1d998c/Untitled.png)
+
+## Git cherrypick :
+
+- Cherry-picking in git means choosing a commit from one branch and applying it to another branch. This is in contrast with other ways such as merge and rebases which normally apply many commits into another branch.
+- Cherry-picking is just like **rebasing,** 
+  an advanced concept and also a powerful command. It is mainly used if you don’t want to merge the whole branch and you want some of the commits.
+
+**Scenario To Implement Cherrypick:**
+
+Suppose a developer fails to recognize which branch he is currently on, and by mistake, he commits to another branch instead of committing that to the main branch. Now to fix it, he has to first run **git show,** then save the commit, then check out the main branch, apply patch there and commit with the same commit message. But all this can be done automatically by using just one command i.e. **cherry-pick.**
+
+example:
+
+In order to Understand the cherrypicking consider the below image
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/3dcb90b1-0693-44cb-a503-e78a441749f7/Untitled.png)
+
+theres a commit in the another branch ,if we want to bring that commit to master
+
+we can use cherrypick
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/220b2e25-ef6f-4dde-9106-ed8c0d2054b0/Untitled.png)
+
+**The command for Cherry-pick is as follows:**
+
+```bash
+git cherry-pick<commit-hash>
+
+//checkout to the branch where you have to add the commit ,then perform the above command .
+```
+
+**Commit hash:**  A commit hash is a unique identifier that is generated by Git. Each commit has its one commit hash.
+
+**Some important Usecases of Cherry-pick are as follows:**
+
+1. If you by mistake make a commit in an incorrect branch, then using cherry-pick you can apply the required changes.
+2. Suppose when the same data structure is to be used by both the frontend and backend of a project. Then a developer can use cherry-pick to pick the commit and use it to his/her part of the project.
+3. At the point when a bug is found it is critical to convey a fix to end clients as fast as could be expected.
+4. Some of the time a component branch might go old and not get converged into the main branch and the request might get closed, but since git never loses those commits, it can be cherry-picked and it would be back.

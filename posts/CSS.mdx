@@ -1,0 +1,88 @@
+---
+title: "CSS"
+date: "2024-11-22"
+---
+
+Cascading Style Sheets
+Used in Front End of [[Full Stack Development]]
+
+- CSS is not a programming language.
+- It's not a markup language either.
+- CSS is a style sheet language.
+- CSS is what you use to selectively style HTML elements.
+
+For ex:
+filename : style.css
+
+```
+p {
+  color: red;
+}
+```
+
+filename : index.html
+
+```
+<link href="styles/style.css" rel="stylesheet" />
+```
+
+![[Pasted image 20240830175236.png]]
+
+---
+
+## Selecting multiple elements
+
+You can also select multiple elements and apply a single ruleset to all of them. Separate multiple selectors by commas. For example:
+
+```
+p,
+li,
+h1 {
+  color: red;
+}
+```
+
+## Centering the image
+
+```
+img {
+  display: block;
+  margin: 0 auto;
+}
+```
+
+## Fonts
+
+```
+html {
+  font-size: 10px; /* the base font size is now 10 pixels high */
+  font-family: "Open Sans", sans-serif; /* this should be the rest of the output you got from Google Fonts */
+}
+```
+
+## Styling body
+
+```
+body {
+  width: 600px;
+  margin: 0 auto;
+  background-color: #ff9500;
+  padding: 0 20px 20px 20px;
+  border: 5px solid black;
+}
+
+```
+
+---
+
+# **CSS : All about boxes**
+
+CSS layout is mostly based on the *box model.* Each box taking up space on your page has properties like:
+
+- `padding`, the space around the content. In the example below, it is the space around the paragraph text.
+- `border`, the solid line that is just outside the padding.
+- `margin`, the space around the outside of the border.
+
+![[Pasted image 20240830180505.png]]
+
+---
